@@ -1,1 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="琪亚娜与芽衣——琪芽的温馨治愈故事，关于相遇、成长、救赎与长久相守。">
+  <title>琪芽 · 在星光落下以前</title>
 
+  <style>
+    /* =========================================================
+       琪芽 · 温馨治愈主题静态网页
+       无外部依赖，可直接保存为 index.html 部署到 GitHub Pages
+       ========================================================= */
+
+    :root {
+      --bg: #fff9f7;
+      --bg-soft: #fff2f0;
+      --pink: #eaa9b7;
+      --pink-deep: #c97891;
+      --purple: #8c7aa9;
+      --purple-light: #eee8f7;
+      --gold: #d8ae72;
+      --text: #514957;
+      --text-light: #837985;
+      --white: #ffffff;
+      --shadow: 0 15px 45px rgba(115, 83, 100, 0.10);
+      --radius: 24px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        "Noto Serif SC",
+        "Songti SC",
+        "STSong",
+        "Microsoft YaHei",
+        serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(234,169,183,.15), transparent 28%),
+        radial-gradient(circle at 90% 25%, rgba(140,122,169,.10), transparent 30%),
+        var(--bg);
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---------- 导航 ---------- */
+
+    .nav {
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px 30px;
+      background: rgba(255, 249, 247, .78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201, 120, 145, .10);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--pink-deep);
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .nav-links a {
+      transition: color .3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink-deep);
+    }
+
+    /* ---------- 通用 ---------- */
+
+    .section {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 110px 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title .en {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--pink-deep);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: #514555;
+    }
+
+    .section-title p {
+      max-width: 650px;
+      margin: 15px auto 55px;
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+    .divider {
+      width: 55px;
+      height: 1px;
+      margin: 25px auto;
+      background: linear-gradient(to right, transparent, var(--pink), transparent);
+    }
+
+    /* ---------- 图片占位 ---------- */
+
+    .image-placeholder {
+      min-height: 380px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg,
+          rgba(234,169,183,.25),
+          rgba(238,232,247,.65));
+      border: 1px solid rgba(201,120,145,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .image-placeholder span {
+      color: rgba(105, 87, 101, .55);
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .image-placeholder img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+    }
+
+    /* ---------- 首页 ---------- */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 25px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(3px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      top: 10%;
+      left: -180px;
+      background: rgba(234,169,183,.12);
+    }
+
+    .hero::after {
+      width: 500px;
+      height: 500px;
+      right: -250px;
+      bottom: -100px;
+      background: rgba(140,122,169,.10);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .hero-small {
+      color: var(--pink-deep);
+      letter-spacing: 8px;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 86px);
+      font-weight: 400;
+      letter-spacing: 12px;
+      color: #504453;
+      line-height: 1.25;
+    }
+
+    .hero h1 span {
+      color: var(--pink-deep);
+    }
+
+    .hero-subtitle {
+      margin: 28px auto;
+      max-width: 680px;
+      font-size: 18px;
+      color: #736675;
+      line-height: 2.1;
+    }
+
+    .hero-quote {
+      margin-top: 45px;
+      color: var(--text-light);
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 11px 30px;
+      border: 1px solid rgba(201,120,145,.5);
+      border-radius: 30px;
+      color: var(--pink-deep);
+      transition: all .3s ease;
+    }
+
+    .hero-button:hover {
+      background: var(--pink-deep);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- 人物 ---------- */
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .character-card {
+      background: rgba(255,255,255,.75);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(201,120,145,.08);
+    }
+
+    .character-card .character-image {
+      height: 360px;
+      background: linear-gradient(135deg, #f6dce2, #ece5f4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #907f8e;
+      letter-spacing: 2px;
+    }
+
+    .character-card.mei .character-image {
+      background: linear-gradient(135deg, #eee7f5, #f6dfe5);
+    }
+
+    .character-content {
+      padding: 35px;
+    }
+
+    .character-name {
+      font-size: 30px;
+      font-weight: 500;
+      color: #5b4c5d;
+      margin-bottom: 5px;
+    }
+
+    .character-en {
+      color: var(--pink-deep);
+      font-family: Georgia, serif;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .character-content h3 {
+      margin-top: 24px;
+      margin-bottom: 7px;
+      font-size: 17px;
+      color: #765e70;
+      font-weight: 600;
+    }
+
+    .character-content p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .softness {
+      margin-top: 25px;
+      padding: 18px 20px;
+      background: var(--bg-soft);
+      border-left: 3px solid var(--pink);
+      border-radius: 10px;
+      color: #76606e;
+      font-size: 14px;
+    }
+
+    /* ---------- 时间线 ---------- */
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 60px auto 0;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(201,120,145,.45),
+        transparent
+      );
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 0 45px 55px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--pink);
+      border: 3px solid var(--bg);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(201,120,145,.3);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -6px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -6px;
+    }
+
+    .timeline-year {
+      color: var(--pink-deep);
+      font-family: Georgia, serif;
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+
+    .timeline-item h3 {
+      margin: 6px 0 10px;
+      color: #5a4b5c;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .timeline-item p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    /* ---------- 日常故事 ---------- */
+
+    .daily-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .daily-card {
+      background: rgba(255,255,255,.78);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(201,120,145,.08);
+      box-shadow: 0 10px 30px rgba(115,83,100,.06);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .daily-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .daily-time {
+      color: var(--pink-deep);
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    .daily-card h3 {
+      color: #5b4c5d;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .daily-card p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    /* ---------- 故事内核 ---------- */
+
+    .core {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .core-intro {
+      text-align: center;
+      font-size: 20px;
+      color: #685767;
+      line-height: 2.1;
+      margin-bottom: 45px;
+    }
+
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .core-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255,255,255,.9), rgba(255,242,240,.75));
+      border: 1px solid rgba(201,120,145,.10);
+    }
+
+    .core-card h3 {
+      color: var(--pink-deep);
+      font-size: 19px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .core-card p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .final-quote {
+      text-align: center;
+      margin-top: 65px;
+      padding: 50px 25px;
+      border-top: 1px solid rgba(201,120,145,.18);
+      border-bottom: 1px solid rgba(201,120,145,.18);
+    }
+
+    .final-quote p {
+      color: #665565;
+      font-size: 23px;
+      line-height: 2;
+    }
+
+    .final-quote small {
+      display: block;
+      margin-top: 18px;
+      color: var(--text-light);
+      letter-spacing: 3px;
+    }
+
+    /* ---------- 章节图片 ---------- */
+
+    .chapter-image {
+      max-width: 1000px;
+      margin: 50px auto 0;
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer {
+      padding: 65px 25px;
+      text-align: center;
+      background: #f8eeed;
+      color: #8c7b85;
+    }
+
+    footer .footer-title {
+      color: #665465;
+      font-size: 21px;
+      letter-spacing: 4px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* ---------- 淡入动画 ---------- */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- 手机适配 ---------- */
+
+    @media (max-width: 800px) {
+
+      .nav {
+        padding: 15px 18px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 75px 20px;
+      }
+
+      .hero {
+        padding: 100px 20px 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: 6px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .character-grid,
+      .daily-list,
+      .core-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .character-card .character-image {
+        height: 280px;
+      }
+
+      .timeline::before {
+        left: 8px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding: 0 0 45px 38px;
+        text-align: left;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 2px;
+        right: auto;
+      }
+
+      .image-placeholder {
+        min-height: 250px;
+      }
+
+      .image-placeholder img {
+        min-height: 250px;
+      }
+
+      .final-quote p {
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .character-content {
+        padding: 25px;
+      }
+
+      .daily-card,
+      .core-card {
+        padding: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       顶部导航
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo">琪芽 · Kiana × Mei</a>
+
+      <ul class="nav-links">
+        <li><a href="#characters">她们</a></li>
+        <li><a href="#timeline">时间线</a></li>
+        <li><a href="#daily">日常</a></li>
+        <li><a href="#meaning">故事内核</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       01 首页封面
+       ========================================================= -->
+  <header class="hero" id="home">
+
+    <!--
+      AI绘图提示词：
+      温馨治愈动画风格，琪亚娜和芽衣并肩站在黄昏的城市天台，
+      琪亚娜带着明亮温柔的笑容，芽衣安静地看着她，
+      两人的手自然地牵在一起，晚霞、微风、远处城市灯光，
+      粉紫与金橙色天空，柔和光晕，细腻唯美，电影感构图，
+      高质量二次元动画插画，无其他人物，无战斗元素。
+    -->
+    <!-- 将下面 div 替换成 <img src="你的图片地址.jpg" alt="琪芽黄昏插画"> 即可 -->
+    <div class="hero-content fade-in">
+      <div class="hero-small">KIANA × MEI</div>
+
+      <h1>
+        <span>琪芽</span><br>
+        在星光落下以前
+      </h1>
+
+      <div class="divider"></div>
+
+      <p class="hero-subtitle">
+        她们曾在漫长的夜里各自寻找出口，<br>
+        也曾在彼此身上，看见那个值得被留下来的自己。
+      </p>
+
+      <p class="hero-quote">
+        “只要你还在这里，回家的路就不会太远。”
+      </p>
+
+      <a href="#characters" class="hero-button">慢慢认识她们</a>
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       02 人物介绍
+       ========================================================= -->
+  <section class="section" id="characters">
+
+    <div class="section-title reveal">
+      <span class="en">THE TWO OF THEM</span>
+      <h2>她们藏起来的柔软</h2>
+      <div class="divider"></div>
+      <p>
+        她们都不是天生无所畏惧的人。
+        只是一个习惯把痛苦藏在笑容之后，一个习惯把温柔藏在沉默之中。
+      </p>
+    </div>
+
+    <div class="character-grid">
+
+      <!-- 琪亚娜 -->
+      <article class="character-card reveal">
+
+        <!--
+          AI绘图提示词：
+          温馨治愈动画风格，琪亚娜·卡斯兰娜半身肖像，
+          白发双马尾，蓝色眼睛，阳光而明亮的神情，
+          穿着符合崩坏3经典形象气质的服装，
+          柔和晨光，浅粉白色背景，轻微花瓣，
+          表情有一点调皮却藏着疲惫后的温柔，
+          精致二次元插画，柔和光影，无其他人物。
+        -->
+        <div class="character-image">
+          <span>琪亚娜 · 图片预留位置</span>
+        </div>
+
+        <div class="character-content">
+          <div class="character-name">琪亚娜</div>
+          <div class="character-en">KIANA KASLANA</div>
+
+          <h3>外貌与气质</h3>
+          <p>
+            白发、蓝眸、总像带着一束不会熄灭的光。
+            她的笑容很容易让人觉得她天真、莽撞、永远不会被困难击倒。
+            可真正熟悉她的人知道，那份明亮从来不是因为她没有经历过黑暗，
+            而是因为她一次又一次选择了继续向前。
+          </p>
+
+          <h3>性格内核</h3>
+          <p>
+            琪亚娜热烈、直接、重感情，也有着近乎固执的保护欲。
+            她不擅长漂亮地表达复杂情绪，却会用最简单的方式告诉重要的人：
+            “我会回来。”
+            她珍惜人与人之间的联系，因为她太清楚失去一个人的感觉。
+          </p>
+
+          <h3>原生背景与伤痕</h3>
+          <p>
+            卡斯兰娜的血脉赋予她力量，也让她背负了远超普通人的命运。
+            她经历过身份与记忆带来的冲击，也曾面对无法回避的命运，
+            在一次次失去与自我怀疑中重新寻找“琪亚娜究竟是谁”。
+            她最深的伤并不是疼痛本身，而是害怕自己的存在会给别人带来灾难。
+          </p>
+
+          <div class="softness">
+            她藏起来的柔软，是一句总说得轻描淡写的“没事”。
+            其实她最希望的，只是有人能够在她笑着说没事的时候，
+            轻轻告诉她：“这一次，你不用一个人扛。”
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 芽衣 -->
+      <article class="character-card mei reveal">
+
+        <!--
+          AI绘图提示词：
+          温馨治愈动画风格，雷电芽衣半身肖像，
+          紫色长发，紫色眼眸，优雅安静的气质，
+          穿着符合崩坏3经典形象气质的服装，
+          黄昏窗边，柔和紫粉色光线，
+          神情温柔克制，眼中有经历过漫长痛苦后的平静，
+          细腻唯美二次元动画插画，无其他人物。
+        -->
+        <div class="character-image">
+          <span>芽衣 · 图片预留位置</span>
+        </div>
+
+        <div class="character-content">
+          <div class="character-name">芽衣</div>
+          <div class="character-en">RAIDEN MEI</div>
+
+          <h3>外貌与气质</h3>
+          <p>
+            紫色长发与沉静的眼眸，让她总显得比同龄人更加成熟。
+            她有着近乎本能的温柔，习惯照顾别人、收拾残局，
+            即使自己已经疲惫，也很少主动让别人担心。
+          </p>
+
+          <h3>性格内核</h3>
+          <p>
+            芽衣温柔、理性、克制，却拥有非常坚定的意志。
+            她不是没有脆弱，只是习惯将脆弱折好收起来。
+            对她而言，爱一个人并不是一句轻飘飘的话，
+            而是愿意承担、愿意等待，也愿意在最困难的时候作出艰难的选择。
+          </p>
+
+          <h3>原生背景与伤痕</h3>
+          <p>
+            她曾拥有优渥的生活，却也经历过家庭变故、社会排斥以及力量带来的孤独。
+            当命运将巨大的压力落在她肩上时，她逐渐学会了把自己的愿望放到最后。
+            她最大的恐惧之一，是自己的存在会再次成为身边人的负担。
+          </p>
+
+          <div class="softness">
+            她藏起来的柔软，是厨房里永远多准备的一份饭，
+            是夜里轻轻盖上的被子，是明明自己也很害怕，
+            却还是会先问一句：“琪亚娜，你还好吗？”
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       03 时间线
+       ========================================================= -->
+  <section class="section" id="timeline">
+
+    <div class="section-title reveal">
+      <span class="en">OUR STORY</span>
+      <h2>她们走过的路</h2>
+      <div class="divider"></div>
+      <p>
+        有些感情并不是在某一个瞬间突然发生。
+        它是在很多个“我还在这里”的瞬间里，一点一点变成了家。
+      </p>
+    </div>
+
+    <!--
+      AI绘图提示词：
+      温馨治愈动画风格，琪亚娜与芽衣的回忆拼贴，
+      从校园时期到成长后的不同阶段，
+      两个人从并肩、分别到再次并肩的情感旅程，
+      柔和粉紫金色调，星光、夕阳、校园窗边等意象，
+      不表现战争，不表现悲剧，重点表现陪伴与成长，
+      电影海报式构图，唯美二次元插画。
+    -->
+    <div class="chapter-image reveal">
+      <div class="image-placeholder">
+        <span>时间线主题图片 · 图片预留位置</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">01 · 初遇</div>
+        <h3>第一次靠近彼此</h3>
+        <p>
+          最初的她们并没有预料到，对方会成为自己生命里如此重要的人。
+          琪亚娜像一阵不太讲道理的风，闯进芽衣相对安静的世界；
+          而芽衣则用自己的温柔，让那个总喜欢逞强的少女第一次感受到，
+          原来有人会认真记得自己喜欢什么、害怕什么、什么时候会累。
+          那时的喜欢还没有名字，只是一种很自然的“想和她待在一起”。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">02 · 同行</div>
+        <h3>从伙伴变成最重要的人</h3>
+        <p>
+          她们一起生活，一起训练，一起经历许多个普通得不能再普通的日子。
+          琪亚娜开始习惯有人在房间里等自己回来；
+          芽衣也开始习惯那个总会制造一点小麻烦的白发女孩。
+          她们的关系在这些细小日常里慢慢扎根。
+          一碗热饭、一句晚安、一起走过的路，都成了后来无论相隔多远，
+          依然能够想起来的温度。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">03 · 矛盾</div>
+        <h3>越珍惜，所以越害怕失去</h3>
+        <p>
+          当命运变得残酷，她们第一次真正意识到，
+          “想保护对方”和“尊重对方的选择”并不总是一回事。
+          琪亚娜害怕芽衣为了自己承担太多；
+          芽衣则害怕自己继续留下，只会让琪亚娜承受更多痛苦。
+          她们的争执并不是因为不再在乎，
+          恰恰相反，是因为太在乎，才无法轻易接受对方受伤。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">04 · 分离</div>
+        <h3>第一次真正意义上的远行</h3>
+        <p>
+          分开以后，最难面对的并不是距离，而是生活突然少了一个人。
+          琪亚娜依然会笑，会继续向前，却会在某些安静的时刻想起芽衣；
+          芽衣也依然坚定，却会在做饭时下意识准备两个人的份量。
+          她们终于明白，有些人离开视线以后，并没有离开生命。
+          思念本身，就是一种无法忽略的答案。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">05 · 各自成长</div>
+        <h3>学会成为能够承担幸福的人</h3>
+        <p>
+          她们没有因为分别而停留在原地。
+          琪亚娜逐渐学会面对自己的命运，不再把“牺牲自己”当作唯一的保护方式。
+          芽衣也开始理解，真正的温柔并不是永远替别人承担一切，
+          而是允许自己拥有愿望，允许自己选择想要的生活。
+          她们都在成长，而成长的终点不再是“成为更强的人”，
+          而是终于知道自己值得被爱，也值得拥有平静的未来。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">06 · 重逢</div>
+        <h3>终于又站在彼此面前</h3>
+        <p>
+          真正的重逢没有想象中轰轰烈烈。
+          她们只是隔着一点距离看着彼此，然后同时笑了。
+          那一刻，曾经漫长的等待似乎都有了意义。
+          琪亚娜发现芽衣依旧会担心自己；
+          芽衣发现琪亚娜依旧会在第一时间走向自己。
+          她们都已经不是过去的自己，却仍然认得彼此。
+        </p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <span class="timeline-dot"></span>
+        <div class="timeline-year">07 · 最终相守</div>
+        <h3>不再需要轰烈，只想一起生活</h3>
+        <p>
+          终于，她们拥有了属于自己的安稳时光。
+          没有必须立刻完成的使命，没有必须证明的勇气，
+          也没有谁需要为了另一个人放弃自己。
+          她们只是一起生活。
+          一起吃饭，一起散步，一起在下雨天窝在沙发里，
+          偶尔争论今天到底谁负责洗碗，然后在夜里互道晚安。
+          她们终于拥有了曾经最奢侈的东西——普通而长久的明天。
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       04 温馨日常小故事
+       ========================================================= -->
+  <section class="section" id="daily">
+
+    <div class="section-title reveal">
+      <span class="en">ORDINARY DAYS</span>
+      <h2>后来，她们只是好好生活</h2>
+      <div class="divider"></div>
+      <p>
+        真正的治愈不是从此没有风雨，而是风雨之后，
+        终于有人可以和你一起回家。
+      </p>
+    </div>
+
+    <!--
+      AI绘图提示词：
+      温馨治愈动画风格，琪亚娜和芽衣在温暖的家中一起生活，
+      厨房、客厅、窗边、夕阳等多个生活场景的温柔拼贴，
+      两人自然亲密但不过度夸张，生活感，柔和暖光，
+      粉色、奶油色、淡紫色，治愈系二次元动画背景，
+      强调平凡幸福和陪伴，无战斗，无其他人物。
+    -->
+    <div class="chapter-image reveal">
+      <div class="image-placeholder">
+        <span>重逢后的生活主题图片 · 图片预留位置</span>
+      </div>
+    </div>
+
+    <div class="daily-list">
+
+      <article class="daily-card reveal">
+        <div class="daily-time">17:40 · 傍晚</div>
+        <h3>一起去散步</h3>
+        <p>
+          傍晚的风已经不那么热了。
+          琪亚娜走得总是比芽衣快一点，走出去一段之后才发现身边没人，
+          于是回头站在路灯下面等她。
+          芽衣慢慢走过来，顺手把琪亚娜被风吹乱的头发理好。
+          “走那么快做什么？”
+          琪亚娜笑着挠挠头：“因为想快点走到你旁边。”
+          芽衣没有回答，只是把手伸过去。
+          后面的路，她们走得一样慢。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">18:30 · 黄昏</div>
+        <h3>厨房里的两个人</h3>
+        <p>
+          芽衣做饭的时候，琪亚娜通常负责“帮忙”。
+          这个“帮忙”的具体内容包括偷吃一块切好的蔬菜，
+          问三次什么时候可以吃，以及在芽衣转身的时候偷偷多拿一块。
+          芽衣早就习惯了。
+          她会故意多准备一点，然后装作没有发现。
+          等饭菜端上桌，琪亚娜总会认真地说一句：“芽衣做的饭最好吃。”
+          芽衣听完会笑。
+          有时候幸福就是这样，一桌热气腾腾的饭，和熟悉的人坐在对面。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">20:15 · 夜晚</div>
+        <h3>沙发上的电影时间</h3>
+        <p>
+          琪亚娜挑电影的标准通常很简单：好不好看。
+          芽衣挑电影则会认真考虑剧情、演员和口碑。
+          所以最后往往是谁也没有说服谁，干脆随便选一部。
+          看到一半，琪亚娜已经靠在芽衣肩上睡着了。
+          芽衣把声音调低，又轻轻把毯子盖到她身上。
+          电影结束以后，她没有马上叫醒她。
+          只是安静坐着，看着窗外的灯。
+          她忽然觉得，这样的夜晚已经足够好了。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">23:47 · 深夜</div>
+        <h3>谁都睡不着的时候</h3>
+        <p>
+          有时候旧日的记忆还是会在深夜回来。
+          琪亚娜睡不着时，不会故意吵醒芽衣，只是坐在床边发呆。
+          可芽衣往往很快就会醒。
+          她不会追问，只会把手伸过去。
+          琪亚娜握住她的手，小声说：“我没事。”
+          芽衣回答：“嗯，我知道。”
+          然后两个人就这样安静地坐一会儿。
+          不需要解释，也不需要把所有伤口重新讲一遍。
+          有人在身边，本身就是答案。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">07:20 · 清晨</div>
+        <h3>谁先起床</h3>
+        <p>
+          芽衣通常醒得比较早。
+          她拉开窗帘，让清晨的光一点点落进房间。
+          琪亚娜会把被子拉过头顶，假装自己完全没有听见闹钟。
+          芽衣叫她两次以后，她依然不动。
+          最后芽衣只能坐到床边，轻声说：“再不起床，早餐就凉了。”
+          被子里立刻传来声音：“芽衣你最好了。”
+          芽衣无奈地笑。
+          她知道自己大概永远拿这个人没有办法。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">14:10 · 午后</div>
+        <h3>晒太阳的下午</h3>
+        <p>
+          周末没有安排的时候，她们会把窗帘拉开，让阳光铺满房间。
+          琪亚娜窝在沙发上看漫画，芽衣坐在旁边读书。
+          偶尔琪亚娜会凑过去问：“这里是什么意思？”
+          芽衣耐心解释。
+          过不了多久，琪亚娜又开始打瞌睡。
+          芽衣把书放下，让她靠得舒服一些。
+          房间里只剩下翻书声和窗外很远的鸟鸣。
+          没有人觉得时间应该更快。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">18:55 · 雨天</div>
+        <h3>忘记带伞</h3>
+        <p>
+          琪亚娜偶尔还是会忘记看天气。
+          她站在屋檐下，看着突然落下的大雨，第一反应是给芽衣发消息。
+          “芽衣，我好像又忘记带伞了。”
+          消息刚发出去没多久，远处就出现了熟悉的身影。
+          芽衣撑着伞走过来，另一只手还拿着琪亚娜喜欢的热饮。
+          琪亚娜笑着跑过去。
+          “你怎么来了？”
+          “因为有人忘记带伞。”
+          两个人挤在一把伞下，慢慢走回家。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">21:36 · 疲惫的夜晚</div>
+        <h3>今天什么都不用做</h3>
+        <p>
+          有时候琪亚娜会累得一句话都不想说。
+          芽衣不会逼她讲发生了什么，只会把热水放到她手边，
+          帮她把外套收好，然后陪她坐一会儿。
+          等琪亚娜终于靠过来，芽衣会轻轻摸摸她的头。
+          “今天已经做得很好了。”
+          琪亚娜闭着眼睛，小声回答：“可是我什么都没做。”
+          “所以才更应该休息。”
+          她们终于学会了一件曾经很难学会的事情：
+          不需要一直战斗，也值得被好好对待。
+        </p>
+      </article>
+
+      <article class="daily-card reveal">
+        <div class="daily-time">00:03 · 零点以后</div>
+        <h3>生日愿望</h3>
+        <p>
+          很久以后，琪亚娜已经不太喜欢许那些遥远的愿望。
+          蜡烛点起来的时候，芽衣问她今年想要什么。
+          琪亚娜想了很久。
+          “希望明年也可以一起过生日。”
+          芽衣看着她，笑着说：“那就许一个更长一点的。”
+          琪亚娜闭上眼睛。
+          这一次，她没有许愿。
+          因为她知道，有些未来不是等待愿望实现，
+          而是两个人一起走过去。
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       05 故事内核
+       ========================================================= -->
+  <section class="section" id="meaning">
+
+    <div class="section-title reveal">
+      <span class="en">THE MEANING OF US</span>
+      <h2>她们为什么能够成为彼此的家</h2>
+      <div class="divider"></div>
+      <p>
+        琪芽真正动人的地方，并不只是“相爱”，
+        而是她们在彼此身边慢慢学会了如何与自己和解。
+      </p>
+    </div>
+
+    <!--
+      AI绘图提示词：
+      温馨治愈动画风格，琪亚娜与芽衣坐在夜晚窗边，
+      两人肩并肩看着星空，房间里有温暖的灯光，
+      桌上有两杯热饮，窗外星星和城市灯火，
+      两人神情平静而幸福，表现“终于回到彼此身边”的感觉，
+      粉紫、暖金色调，柔和光晕，细腻二次元动画插画，
+      安静、治愈、长久相守的氛围，无其他人物。
+    -->
+    <div class="chapter-image reveal">
+      <div class="image-placeholder">
+        <span>故事内核主题图片 · 图片预留位置</span>
+      </div>
+    </div>
+
+    <div class="core">
+
+      <p class="core-intro reveal">
+        她们并没有真正“拯救”对方。<br>
+        更准确地说，她们让对方重新相信——<br>
+        <strong>即使自己并不完美，也依然值得拥有一个明天。</strong>
+      </p>
+
+      <div class="core-grid">
+
+        <article class="core-card reveal">
+          <h3>01 · 琪亚娜教会芽衣留下自己</h3>
+          <p>
+            芽衣习惯把别人的安全放在自己之前。
+            她很容易认为，只要自己承担更多，别人就可以少受一点伤。
+            琪亚娜的存在让她慢慢意识到：
+            爱并不是无止境的牺牲。
+            真正重要的人不会希望她永远把自己排在最后。
+            所以她开始学会说出自己的愿望，
+            也开始允许自己期待幸福。
+          </p>
+        </article>
+
+        <article class="core-card reveal">
+          <h3>02 · 芽衣教会琪亚娜被爱</h3>
+          <p>
+            琪亚娜总是想成为保护别人的那个人。
+            她可以为了别人向前，却很难承认自己也需要被保护。
+            芽衣没有把她当成无所不能的英雄。
+            她会在琪亚娜疲惫的时候照顾她，
+            会在她逞强的时候看穿她。
+            这让琪亚娜终于明白：
+            被爱并不会让自己变弱，
+            接受别人的温柔同样是一种勇气。
+          </p>
+        </article>
+
+        <article class="core-card reveal">
+          <h3>03 · 她们让彼此拥有了“家”</h3>
+          <p>
+            家从来不只是一个地点。
+            对她们而言，家是有人会等你回来，
+            是你可以不用表现得坚强，
+            是你沉默的时候，对方也愿意坐在身边。
+            她们经历过太多不得不告别的时刻，
+            所以最后真正想要的并不是更宏大的世界，
+            而是一扇灯还亮着的门。
+          </p>
+        </article>
+
+        <article class="core-card reveal">
+          <h3>04 · 最好的结局是普通生活</h3>
+          <p>
+            曾经的她们需要不断面对命运，
+            需要在巨大的压力下做出选择。
+            可真正属于她们的幸福，
+            最终不应该只存在于壮烈的故事里。
+            幸福也可以是一起吃晚饭，
+            是雨天共撑一把伞，
+            是睡前一句“晚安”，
+            是第二天醒来以后，依旧能够看见熟悉的人。
+          </p>
+        </article>
+
+      </div>
+
+      <div class="final-quote reveal">
+        <p>
+          “我们曾经都走过很长的路。<br>
+          所以以后，就不要再一个人走了。”
+        </p>
+        <small>琪亚娜 · 芽衣</small>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       06 结尾图片
+       ========================================================= -->
+  <section class="section" style="padding-top: 30px; padding-bottom: 100px;">
+
+    <!--
+      AI绘图提示词：
+      温馨治愈动画风格，成年后的琪亚娜与芽衣一起坐在家中阳台，
+      夜晚星空，城市灯光远远铺开，
+      琪亚娜靠在芽衣肩上，芽衣温柔地握着她的手，
+      桌上有两杯热茶，窗帘被晚风轻轻吹动，
+      氛围安静、幸福、安心，表现长久相守后的普通生活，
+      柔和暖金、淡紫、浅粉色调，
+      高质量二次元动画插画，细腻光影，无其他人物。
+    -->
+
+    <div class="chapter-image reveal">
+      <div class="image-placeholder">
+        <span>最终相守主题图片 · 图片预留位置</span>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       页脚
+       ========================================================= -->
+  <footer>
+    <div class="footer-title">KIANA × MEI</div>
+    <p>
+      有些相遇不是为了让故事变得轰轰烈烈。<br>
+      而是为了让漫长的人生里，始终有一个人可以一起回家。
+    </p>
+    <p style="margin-top: 18px; opacity: .7;">
+      A quiet story about love, healing, and staying together.
+    </p>
+  </footer>
+
+
+  <!-- =========================================================
+       极简 JavaScript
+       用于页面滚动到指定位置时触发淡入动画
+       不依赖任何外部库
+       ========================================================= -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+
+    });
+  </script>
+
+</body>
+</html>
